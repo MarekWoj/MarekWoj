@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/fontello.css">
+</head>
+<body
+onload="startTime()">
+   
+    <div class="container">
+        <!--tablet-->
+        <div class="br_top"></div>
+        <div class="br_left"></div>
+            <div class="screen">
+                <div class="content">
+                   
+                    
+
+
+                    <div class="section1">
+                        <div class="tile1"><i class="icon-mail"></i></div>
+                        <div class="tile1"><i class="icon-picture"></i></div>
+                        <div class="tile1"><i class="icon-camera-alt"></i></div>
+                        <div class="tile1"><i class="icon-trash-empty"></i></div>
+                        <div class="tile1"><i class="icon-calendar"></i></div>
+                        <div class="tile1"><i class="icon-phone"></i></div>
+                        <div class="tile1"><i class="icon-signal"></i></div>
+                        <div class="tile1"><i class="icon-globe"></i></div>
+                    </div>
+                    <section class="section2">
+                        <div id="txt"></div>
+                        <div id="bateria"></div>
+                        <p id="demo"></p>
+                       
+                       
+                    </section>
+                    <div style="clear: both;"></div>
+                    <div class="section1">
+                        <div class="tile1"><i class="icon-floppy"></i></div>
+                        <div class="tile1"><i class="icon-th"></i></div>
+                        <div class="tile1"><i class="icon-celcius"></i></div>
+                        <div class="tile1"><i class="icon-cloud-sun"></i></div>
+                        <div class="tile1"><i class="icon-wrench-circled"></i></div>
+                        <div class="tile1"><i class="icon-basket"></i></div>
+                        <div class="tile1"><i class="icon-user"></i></div>
+                        <div class="tile1"><i class="icon-home"></i></div>
+                    </div>
+                    <section class="section2">
+                        <div class="tile1"><i class="icon-light-up"></i></div>
+                        <div class="tile1"><i class="icon-folder-open-empty"></i></div>
+                        <div class="tile1"><i class="icon-th-list"></i></div>
+                        <div class="tile1"><i class="icon-facebook-circled"></i></div> 
+                    </section>
+                    
+                
+
+                   
+
+
+                  
+                </div>
+            </div><!--koniec ekranu-->
+        <div class="br_right"></div>
+        <div class="br_bottom"></div>
+    </div><!--koniec kontenera-->
+</body>
+
+<script>
+const d = new Date();
+document.getElementById("demo").innerHTML = d.getFullYear();
+
+
+/*function zmianaTla(tlo)
+{
+    const elements = document.querySelectorAll('.tile1');
+    elements.forEach(element =>{
+    
+    
+        element.style.tlo = tlo;
+});
+*/
+    
+   
+
+
+/*
+document.querySelector(".icon-mail").addEventListener('click', function()
+{
+    document.querySelector('.content').style.backgroundImage="url('poczta.png')";
+    
+})
+document.querySelector(".icon-picture").addEventListener('click', function()
+{
+    document.querySelector('.content').style.backgroundImage="url('galeria.png')";
+})
+document.querySelector(".icon-camera-alt").addEventListener('click', function()
+{
+    document.querySelector('.content').style.backgroundImage="url('aparat.png')";
+
+})
+document.querySelector(".icon-trash-empty").addEventListener('click', function()
+{
+    document.querySelector('.content').style.backgroundImage="url('smietnik.png')"; 
+})*/
+
+
+
+ /*   let battery = document.querySelector('bateria')
+    battery.innerHTML ='<i class="icon-battery-1"></i>'
+    setTimeout(function(){
+        battery.innerHTML ='<i class="icon-battery-2"></i>'
+    },1000)
+    setTimeout(function() {
+        battery.innerHTML ='<i class="icon-battery-3"></i>'
+    },2000)
+    setTimeout(function() {
+        battery.innerHTML ='<i class="icon-battery-4"></i>'
+    },3000)
+   setInterval(battery,5000)
+   */
+      
+
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+startTime();
+
+function battery()
+{
+    let i=0
+    setInterval(()=>
+    {
+        document.getElementById("bateria").innerHTML=`<i class="icon-battery-${i}"></i>`;
+        i=(i+1)%5;
+    },1000);
+    }
+    battery()
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</html>
